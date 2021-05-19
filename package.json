@@ -8,15 +8,15 @@
   },
   "keywords": [
     "command-line",
-    "cli"
+    "cli",
+    "text-snippets",
+    "snippets"
   ],
   "author": "Nav Saini",
   "license": "UNLICENSED",
-  "volta": {
-    "node": "12.22.1"
-  },
   "dependencies": {
     "@keyv/sqlite": "^2.0.2",
+    "commander": "^7.2.0",
     "fs-extra": "^10.0.0",
     "keyv": "^4.0.3"
   },
@@ -27,5 +27,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "prettier-eslint": "^12.0.0"
+  },
+  "volta": {
+    "node": "12.22.1"
+  },
+  "bin": {
+    "song": "./cli.js"
   }
 }
