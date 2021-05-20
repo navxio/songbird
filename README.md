@@ -2,10 +2,17 @@
 
 A command line snippet manager
 
+#### Requirements
+* node >= 12
+* npm
 
 #### Installation
-`npm i -g @navxio/songbird`
+`npm i -g songbird-cli`
 
-### Similar Projects
+#### Usage
 
+#### License
+GPL-v2.0
+
+#### Similar Projects
 boom

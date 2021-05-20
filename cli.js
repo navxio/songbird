@@ -1,23 +1,29 @@
-#!/usr/bin/env -S node
+#!/usr/bin/env node
 
-const { get, set, list } = require('.')
+const { program } = require('commander')
+const { get, set, listAll } = require('.')
 
-switch(process.argv.length) {
-  case 2:
-    list()
-    console.log(process.argv)
-    break;
-  case 3: {
-    const key = process.argv[2]
-    console.log(process.argv)
-    get(key)
-  }
-    break;
-  case 4: {
-    const key = process.argv[2]
-    const value = process.argv[3]
-    console.log(process.argv)
-    set(key, value)
-  }
-    break;
+program.version('0.0.2')
+  .option('-l, --list', 'list all key/value pairs')
+  .usage('[options] <key> [value]')
+  .arguments('<key> [value]')
+  .description('get or fetch the snippet', {
+    key: 'string: unique name of the key',
+    value: 'string: value to be set'
+  })
+  .action(( key, value) => {
+    if (key && !value) {
+      get(key).then(() => 
+        process.exit(1)
+      )
+    }
+    if ( key && value) {
+      set(key, value).then(() => process.exit(1))
+    }
+  })
+  .parse(process.argv)
+
+const options = program.opts()
+if (options.list) {
+  listAll()
 }
