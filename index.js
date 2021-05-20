@@ -1,17 +1,14 @@
 const Keyv = require('keyv')
-const fs = require('fs-extra')
 const path = require('path')
 const clipboard = require('clipboardy')
 
 
-const storeDir = path.resolve(process.env.HOME, '.local/share/songbird')
 const dbDir = path.resolve(process.env.HOME, '.local/share/songbird', 'store.sqlite3')
 
 // will list all the keys defined
 const listAll = async () => {
   let keyv
   try {
-    await fs.ensureDir(storeDir)
     keyv = new Keyv('sqlite://'+ dbDir)
     keyv.on('error', err => console.error('Connection error', err))
     console.log('called listAll')
@@ -24,7 +21,6 @@ const listAll = async () => {
 const set = async (key, val) => {
   let keyv
   try {
-    await fs.ensureDir(storeDir)
     keyv = new Keyv('sqlite://'+ dbDir)
     keyv.on('error', err => console.error('Connection error', err))
     await keyv.set(key, val)
@@ -36,10 +32,9 @@ const set = async (key, val) => {
   // keyv.on('error', err => console.error('Connection error', err))
 }
 
-const get = async (key) => {
+const get = async (key, clip) => {
   let keyv
   try {
-    await fs.ensureDir(storeDir)
     keyv = new Keyv('sqlite://'+ dbDir)
   keyv.on('error', err => console.error('Connection error', err))
     const val = await keyv.get(key)

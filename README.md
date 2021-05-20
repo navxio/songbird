@@ -14,5 +14,11 @@ A command line snippet manager
 #### License
 GPL-v2.0
 
+
+#### TODO
+- [] Add --no-clipboard flag
+- [] Finish pretty print list all
+- [] create storage dir creation on package install
+
 #### Similar Projects
 boom
