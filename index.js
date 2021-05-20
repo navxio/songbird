@@ -14,10 +14,10 @@ const list = async () => {
   } catch(e) {
     console.error('Error', e)
   }
-  keyv.on('error', err => console.error('Connection error', err))
+  // keyv.on('error', err => console.error('Connection error', err))
 }
 
-const set = (key, val) => {
+const set = async (key, val) => {
   let keyv
   try {
     await fs.ensureDir(storeDir)
@@ -25,10 +25,10 @@ const set = (key, val) => {
   } catch(e) {
     console.error('Error', e)
   }
-  keyv.on('error', err => console.error('Connection error', err))
+  // keyv.on('error', err => console.error('Connection error', err))
 }
 
-const get = (key) => {
+const get = async (key) => {
   let keyv
   try {
     await fs.ensureDir(storeDir)
@@ -36,7 +36,7 @@ const get = (key) => {
   } catch(e) {
     console.error('Error', e)
   }
-  keyv.on('error', err => console.error('Connection error', err))
+  // keyv.on('error', err => console.error('Connection error', err))
 }
 
 module.exports = { set, get, list }
