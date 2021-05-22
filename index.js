@@ -2,7 +2,6 @@ const Keyv = require('keyv')
 const path = require('path')
 const clipboard = require('clipboardy')
 
-
 const dbDir = path.resolve(process.env.HOME, '.local/share/songbird', 'store.sqlite3')
 
 // will list all the keys defined
@@ -11,11 +10,9 @@ const listAll = async () => {
   try {
     keyv = new Keyv('sqlite://'+ dbDir)
     keyv.on('error', err => console.error('Connection error', err))
-    console.log('called listAll')
   } catch(e) {
     console.error('Error', e)
   }
-  // keyv.on('error', err => console.error('Connection error', err))
 }
 
 const set = async (key, val) => {
@@ -29,14 +26,13 @@ const set = async (key, val) => {
   } catch(e) {
     console.error('Error', e)
   }
-  // keyv.on('error', err => console.error('Connection error', err))
 }
 
 const get = async (key, clip) => {
   let keyv
   try {
     keyv = new Keyv('sqlite://'+ dbDir)
-  keyv.on('error', err => console.error('Connection error', err))
+    keyv.on('error', err => console.error('Connection error', err))
     const val = await keyv.get(key)
     if (val) {
       console.log(val)
