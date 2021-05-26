@@ -1,48 +1,48 @@
 const Keyv = require('keyv')
 const path = require('path')
-const clipboard = require('clipboardy')
 
-const dbDir = path.resolve(process.env.HOME, '.local/share/songbird', 'store.sqlite3')
+const dbPath = path.resolve(process.env.HOME, '.songbird', 'db.sqlite3')
+let keyv
+
+try {
+    keyv = new Keyv('sqlite://'+ dbPath)
+    keyv.on('error', err => console.error('Connection error', err))
+} catch(e) {
+    console.error('Connection Error', e)
+}
 
 // will list all the keys defined
 const listAll = async () => {
-  let keyv
   try {
-    keyv = new Keyv('sqlite://'+ dbDir)
-    keyv.on('error', err => console.error('Connection error', err))
   } catch(e) {
     console.error('Error', e)
   }
 }
 
 const set = async (key, val) => {
-  let keyv
   try {
-    keyv = new Keyv('sqlite://'+ dbDir)
-    keyv.on('error', err => console.error('Connection error', err))
     await keyv.set(key, val)
-    clipboard.writeSync(val)
-    process.stdout.write(val)
+    return val;
   } catch(e) {
     console.error('Error', e)
   }
 }
 
-const get = async (key, clip) => {
-  let keyv
+const get = async (key) => {
   try {
-    keyv = new Keyv('sqlite://'+ dbDir)
-    keyv.on('error', err => console.error('Connection error', err))
     const val = await keyv.get(key)
     if (val) {
-      console.log(val)
-      clipboard.writeSync(val)
+      return val;
     } else {
-      process.stderr.write('Not found')
+      console.error('Not Found')
+      return null;
     }
   } catch(e) {
     console.error('Error', e)
   }
 }
 
-module.exports = { set, get, listAll }
+const all = async () => {
+
+}
+module.exports = { set, get, all }

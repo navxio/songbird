@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node createStorageDir.js"
   },
+  "engines": {
+    "node": ">10"
+  },
   "keywords": [
     "command-line",
     "cli",
@@ -18,9 +21,9 @@
   "dependencies": {
     "@keyv/sqlite": "^2.0.2",
     "clipboardy": "^2.3.0",
-    "commander": "^7.2.0",
     "fs-extra": "^10.0.0",
-    "keyv": "^4.0.3"
+    "keyv": "^4.0.3",
+    "optimist": "^0.6.1"
   },
   "devDependencies": {
     "eslint": "^7.26.0",

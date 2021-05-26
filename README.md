@@ -1,4 +1,4 @@
-### songbird
+## songbird
 
 A minimal command line snippet manager
 
@@ -25,15 +25,17 @@ By default, the song command will copy the target value to the clipboard
 
 `-n --no-copy` Skip copying to clipboard
 
-`-a --all` list all keyvalue pairs
+`-l --list` list all keyvalue pairs in a pretty formatted table
 
+`-p --pretty` pretty print a stored value
 
 #### TODO
-- [ ] Add --no-clipboard flag
 
 - [ ] Finish pretty print list all flag (`-a`)
 
 - [ ] create storage dir creation on package install
+
+- [ ] Enable reading from stdin
 
 ### Planned Features
 
