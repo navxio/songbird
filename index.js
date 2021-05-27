@@ -3,10 +3,18 @@
 const { get, set, all } = require('./store')
 const clipboard = require('clipboardy')
 const args = require('optimist').argv
+const Table = require('cli-table')
 
 switch(args._.length) {
   case 0: {
-    const abcd = all()
+    const data = all()
+    const table = new Table({
+      style: { 'padding-left': 0, 'padding-right': 0 }
+    });
+    data.forEach(row => {
+      table.push([row.key, row.value])
+    })
+    console.log(table.toString());
     break;
   }
   case 1: {

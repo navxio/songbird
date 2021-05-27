@@ -34,7 +34,7 @@ By default, the song command will copy the target value to the clipboard
 #### TODO
 - [x] create storage dir creation on package install
 
-- [ ] pretty print option
+- [x] pretty print option
 
 - [ ] Enable reading from stdin
 

@@ -21,13 +21,13 @@ store.get = (key) => {
 
 store.set = (key, val) => {
     const setVal = db.prepare('replace into store values(?, ?)')
-    const result = setVal.run(key, val)
+    setVal.run(key, val)
     return val;
 }
 
 store.all = () => {
     const allSet = db.prepare('select * from store')
-    const result = allSet.get()
+    const result = allSet.all()
     return result;
 }
 
