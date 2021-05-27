@@ -46,4 +46,4 @@ By default, the song command will copy the target value to the clipboard
 
 #### License
 
-GPL-v2.0
+GPL v3
