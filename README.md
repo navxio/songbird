@@ -11,7 +11,6 @@ A minimal command line snippet manager
 
 #### Usage
 
-By default, `song` command copies the result to your clipboard. To avoid it, use the `-n` flag
 
 `song <key> [value]`
 
@@ -21,13 +20,14 @@ To retrieve the value, just omit the `[value]` parameter
 
 `song <key>`
 
-By default, the song command will copy the target value to the clipboard
+By default, `song` command copies the result to your clipboard. To avoid it, use the `-n` flag
+
+
+`song` prints all the key value pairs in a formatted table
 
 ##### Flags
 
 `-n, --no-clip` Skip copying to clipboard
-
-`-l, --list` list all keyvalue pairs in a pretty formatted table
 
 `-p, --pretty` pretty print a stored value
 
