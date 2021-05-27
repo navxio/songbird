@@ -1,48 +1,47 @@
-const Keyv = require('keyv')
-const path = require('path')
+#!/usr/bin/env node
 
-const dbPath = path.resolve(process.env.HOME, '.songbird', 'db.sqlite3')
-let keyv
+const { get, set, all } = require('./store')
+const clipboard = require('clipboardy')
+const args = require('optimist').argv
 
-try {
-    keyv = new Keyv('sqlite://'+ dbPath)
-    keyv.on('error', err => console.error('Connection error', err))
-} catch(e) {
-    console.error('Connection Error', e)
-}
-
-// will list all the keys defined
-const listAll = async () => {
-  try {
-  } catch(e) {
-    console.error('Error', e)
+switch(args._.length) {
+  case 0: {
+    const abcd = all()
+    break;
   }
-}
-
-const set = async (key, val) => {
-  try {
-    await keyv.set(key, val)
-    return val;
-  } catch(e) {
-    console.error('Error', e)
-  }
-}
-
-const get = async (key) => {
-  try {
-    const val = await keyv.get(key)
-    if (val) {
-      return val;
+  case 1: {
+    // get
+    const key = args._[0]
+    const res = get(key)
+    if (args.p) {
+      console.log(res)
     } else {
-      console.error('Not Found')
-      return null;
+      if (res) {
+        process.stdout.write(res)
+      }
     }
-  } catch(e) {
-    console.error('Error', e)
+    if (!args.n) {
+      if (res) {
+        clipboard.writeSync(res)
+      }
+    }
+    break;
   }
+  case 2:
+    // set
+    const key = args._[0]
+    const value = args._[1]
+    const val = set(key, value)
+    if (args.p) {
+      console.log(val);
+    } else {
+      process.stdout.write(val)
+    }
+    if (!args.n) {
+      clipboard.writeSync(val)
+    }
+    break;
+  default:
+    console.error('wrong args')
+    break;
 }
-
-const all = async () => {
-
-}
-module.exports = { set, get, all }

@@ -8,7 +8,7 @@
     "postinstall": "node createStorageDir.js"
   },
   "engines": {
-    "node": ">10"
+    "node": ">=10"
   },
   "keywords": [
     "command-line",
@@ -19,10 +19,10 @@
   "author": "Nav Saini",
   "license": "UNLICENSED",
   "dependencies": {
-    "@keyv/sqlite": "^2.0.2",
+    "better-sqlite3": "^7.4.0",
+    "cli-table": "^0.3.6",
     "clipboardy": "^2.3.0",
     "fs-extra": "^10.0.0",
-    "keyv": "^4.0.3",
     "optimist": "^0.6.1"
   },
   "devDependencies": {
@@ -37,6 +37,6 @@
     "node": "14.17.0"
   },
   "bin": {
-    "song": "./cli.js"
+    "song": "./index.js"
   }
 }

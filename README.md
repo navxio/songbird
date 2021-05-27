@@ -3,13 +3,15 @@
 A minimal command line snippet manager
 
 #### Requirements
-* node >= 12
+* node >= 10
 * npm
 
 #### Installation
 `npm i -g songbird-cli`
 
 #### Usage
+
+By default, `song` command copies the result to your clipboard. To avoid it, use the `-n` flag
 
 `song <key> [value]`
 
@@ -35,6 +37,8 @@ By default, the song command will copy the target value to the clipboard
 - [ ] pretty print option
 
 - [ ] Enable reading from stdin
+
+- [ ] minimize deps
 
 ### Planned Features
 
