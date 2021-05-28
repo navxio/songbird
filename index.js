@@ -11,10 +11,12 @@ switch(args._.length) {
     const table = new Table({
       style: { 'padding-left': 0, 'padding-right': 0 }
     });
-    data.forEach(row => {
-      table.push([row.key, row.value])
-    })
-    console.log(table.toString());
+    if (data) {
+      data.forEach(row => {
+        table.push([row.key, row.value])
+      })
+      console.log(table.toString());
+    }
     break;
   }
   case 1: {

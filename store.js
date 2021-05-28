@@ -15,7 +15,7 @@ try {
 store.get = (key) => {
     const fetchVal = db.prepare('select value from store where key = ?')
     const result = fetchVal.get(key)
-    const val = result.value;
+    const val = result?.value;
     return val;
 }
 
