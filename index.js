@@ -4,6 +4,8 @@ const { get, set, all } = require('./store')
 const clipboard = require('clipboardy')
 const args = require('optimist').argv
 const Table = require('cli-table')
+const readline = require('readline')
+const { EOL } = require('os')
 
 switch(args._.length) {
   case 0: {
@@ -20,19 +22,38 @@ switch(args._.length) {
     break;
   }
   case 1: {
-    // get
     const key = args._[0]
-    const res = get(key)
-    if (args.p) {
-      console.log(res)
+    if (args.s) {
+      // it's a stream
+      const rl = readline.createInterface({
+        input: process.stdin
+      });
+
+      let val = '';  // only a string for now
+      rl.on('line', (line) => {
+        val = val + line + EOL;
+        console.log(`Received line ${line}`)
+      })
+
+      rl.on('close', () => {
+        console.log('found val', val)
+        set(key, val)
+      })
+
     } else {
-      if (res) {
-        process.stdout.write(res)
+      // get
+      const res = get(key)
+      if (args.p) {
+        console.log(res)
+      } else {
+        if (res) {
+          process.stdout.write(res)
+        }
       }
-    }
-    if (!args.n) {
-      if (res) {
-        clipboard.writeSync(res)
+      if (!args.n) {
+        if (res) {
+          clipboard.writeSync(res)
+        }
       }
     }
     break;
