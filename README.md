@@ -20,8 +20,7 @@ To retrieve the value, just omit the `[value]` parameter
 
 `song <key>`
 
-By default, `song` command copies the result to your clipboard. To avoid it, use the `-n` flag
-
+Note: By default, `song` command copies the result to your clipboard. To avoid it, use the `-n` flag
 
 `song` prints all the key value pairs in a formatted table
 
@@ -34,11 +33,11 @@ By default, `song` command copies the result to your clipboard. To avoid it, use
 #### TODO
 - [x] create storage dir creation on package install
 
-- [x] pretty print option
+- [x] pretty print
 
 - [ ] Enable reading from stdin
 
-- [ ] minimize deps
+- [ ] minimize dependencies
 
 ### Planned Features
 
