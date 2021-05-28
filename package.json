@@ -1,6 +1,6 @@
 {
   "name": "songbird-cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "repository": "https://github.com/navxio/songbird",
   "main": "index.js",
