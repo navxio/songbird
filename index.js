@@ -39,7 +39,7 @@ switch(args._.length) {
     // set
     const key = args._[0]
     const value = args._[1]
-    const res = set(key, value)
+    const res = set(key, String(value))
     if (args.p) {
       console.log(value);
     } else {

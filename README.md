@@ -37,11 +37,10 @@ Note: By default, `song` command copies the result to your clipboard. To avoid i
 
 - [ ] Enable reading from stdin
 
-- [ ] minimize dependencies
-
 ### Planned Features
 
 - [ ] GNU pass like folders
+- [ ] Tab Completion
 
 #### License
 
