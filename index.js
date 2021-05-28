@@ -4,8 +4,12 @@ const { get, set, all } = require('./store')
 const clipboard = require('clipboardy')
 const args = require('optimist').argv
 const Table = require('cli-table')
-const readline = require('readline')
-const { EOL } = require('os')
+
+async function read(stream) {
+  const chunks = []
+  for await (const chunk of stream) chunks.push(chunk)
+  return Buffer.concat(chunks).toString('utf8')
+}
 
 switch(args._.length) {
   case 0: {
@@ -25,21 +29,9 @@ switch(args._.length) {
     const key = args._[0]
     if (args.s) {
       // it's a stream
-      const rl = readline.createInterface({
-        input: process.stdin
-      });
-
-      let val = '';  // only a string for now
-      rl.on('line', (line) => {
-        val = val + line + EOL;
-        console.log(`Received line ${line}`)
-      })
-
-      rl.on('close', () => {
-        console.log('found val', val)
+      read(process.stdin).then(val => {
         set(key, val)
       })
-
     } else {
       // get
       const res = get(key)
