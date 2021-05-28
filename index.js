@@ -39,14 +39,14 @@ switch(args._.length) {
     // set
     const key = args._[0]
     const value = args._[1]
-    const val = set(key, value)
+    const res = set(key, value)
     if (args.p) {
-      console.log(val);
+      console.log(value);
     } else {
-      process.stdout.write(val)
+      process.stdout.write(value)
     }
     if (!args.n) {
-      clipboard.writeSync(val)
+      clipboard.writeSync(value)
     }
     break;
   default:
