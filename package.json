@@ -19,7 +19,7 @@
     "snippets"
   ],
   "author": "Nav Saini",
-  "license": "UNLICENSED",
+  "license": "GPLv3",
   "dependencies": {
     "better-sqlite3": "^7.4.0",
     "cli-table": "^0.3.6",
