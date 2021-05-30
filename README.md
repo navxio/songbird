@@ -16,7 +16,7 @@ A minimal command line snippet manager
 Store any string inside the register `key`
 
 or read from stdin
-`cat myFile | song myKey`
+`cat myFile | song myKey -s`
 
 To retrieve the value, just omit the `[value]` parameter
 
