@@ -38,6 +38,7 @@ Note: By default, `song` command copies the result to your clipboard. To avoid i
 
 - [ ] GNU pass like folders
 - [ ] Tab Completion
+- [ ] Password protected strings
 
 #### License
 
