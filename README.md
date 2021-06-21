@@ -40,6 +40,8 @@ Note: By default, `song` command copies the result to your clipboard. To avoid i
 - [ ] Tab Completion
 - [ ] Password protected strings
 
+Note: Only utf8 strings supported.
+
 #### License
 
 GPL v3
