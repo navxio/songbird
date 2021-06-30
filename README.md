@@ -33,7 +33,9 @@ Note: By default, `song` command copies the result to your clipboard. To avoid i
 `-p` pretty print a stored value
 
 `-s` accept value from stdin
-
+## todo
+- [ ] tests
+- [ ] expand documentation, create man page
 ### Planned Features
 
 - [ ] GNU pass like folders
